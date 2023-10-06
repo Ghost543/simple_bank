@@ -1,0 +1,22 @@
+version: "2"
+cloud:
+  organization: "bank"
+  project: "simple bank"
+  hostname: "0.0.0.0"
+overrides:
+  go: null
+plugins: []
+rules: []
+
+sql:
+  - engine: "postgresql"
+    queries: "./db/query/"
+    schema: "./db/migration/"
+    gen:
+      go:
+        package: "db"
+        out: "./db/sqlc/"
+        emit_exact_table_names: true
+        emit_json_tags: true
+        emit_interface: false
+        emit_prepared_queries: false
